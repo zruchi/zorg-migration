@@ -5,7 +5,7 @@
 ## Procedure
 1. Apply envoy filter `envoy-filter-host-header.yaml` to change `Host` header value to random string. 
 2. Apply envoy filter `access-log.yaml` to log the request. 
-3. Perform testing with service owner, if errors occured then the application is using the `Host` header to extract the customer `subdomain`. This means service owner will need to make a change in their application code to extract host instead from either `X-Zendesk-Original-Host` or `x_forwarded_for` header which `zorg` will once the call passes through.
+3. Perform testing with service owner, if errors occured then the application is using the `Host` header to extract the customer `subdomain`. This means service owner will need to make a change in their application code to extract host instead from either `X-Zendesk-Original-Host` or `x_forwarded_for` header which `zorg` will add once the call passes through.
 
 ## Traffic flow before and after
 
