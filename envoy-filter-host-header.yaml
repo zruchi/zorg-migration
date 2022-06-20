@@ -1,0 +1,30 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: EnvoyFilter
+metadata:
+  generation: 1
+  name: fuzz-host-header
+  namespace: twitter-proxy
+spec:
+  configPatches:
+  - applyTo: HTTP_FILTER
+    match:
+      context: SIDECAR_INBOUND
+      listener:
+        filterChain:
+          filter:
+            name: envoy.filters.network.http_connection_manager
+            subFilter:
+              name: envoy.filters.http.router
+    patch:
+      operation: INSERT_BEFORE
+      value:
+        name: envoy.lua
+        typed_config:
+          '@type': type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+          inlineCode: |
+            function envoy_on_request(request_handle)
+              headers = request_handle:headers()
+              random_string = "Zorg-Istio-Routing-test"
+              request_handle:logWarn("Host header field has been modified. Original Value: " .. headers:get("Host") .. ". Updated Value: " .. random_string .. ".")
+              headers:replace("Host", random_string)
+            end
