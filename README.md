@@ -16,3 +16,11 @@
 ### After
 
 ![After migration traffic flow](./images/after.svg)
+
+## Applying PR in atlantis
+
+### Staging
+1. At least 1 approving the PR
+2. comment `atlantis apply -p zorg-staging` and workflow will apply the changes in staging
+
+#### Production
