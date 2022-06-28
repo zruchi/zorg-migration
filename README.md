@@ -20,5 +20,5 @@
 ## Applying PR in atlantis
 
 ### Staging
-1. At least 1 from network team approving the PR
+1. At least 1 from network/edge and service owner approving the PR
 2. comment `atlantis apply -p zorg-staging` and workflow will apply the changes in staging

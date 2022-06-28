@@ -1,9 +1,8 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
-  generation: 1
   name: fuzz-host-header
-  namespace: twitter-proxy
+  namespace: zis-actions-salesforce
 spec:
   configPatches:
   - applyTo: HTTP_FILTER

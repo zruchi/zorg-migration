@@ -2,7 +2,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
   name: access-log
-  namespace: twitter-proxy
+  namespace: zis-actions-salesforce
 spec:
   configPatches:
   - applyTo: NETWORK_FILTER
