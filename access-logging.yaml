@@ -46,3 +46,4 @@ spec:
                 upstream_service_time: '%RESP(X-ENVOY-UPSTREAM-SERVICE-TIME)%'
                 user_agent: '%REQ(USER-AGENT)%'
                 x_forwarded_for: '%REQ(X-FORWARDED-FOR)%'
+                x_zendesk_original_host: '%REQ(X-ZENDESK-ORIGINAL-HOST)%'
